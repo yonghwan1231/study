@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>테이블 행 숨기기/보이기 (display)</h4>
+
+  <table id='fruits' border="1">
+    <tr><td>사과</td><td>apple</td></tr>
+    <tr id='orange'><td>오렌지<td>orange</td></tr>
+    <tr><td>바나나</td><td>banana</td></tr>
+  </table>
+  <input type='button' value='오렌지 행 숨기기' onclick='hideRow()'>
+  <input type='button' value='오렌지 행 보이기' onclick='showRow()'>
+
+  <script>
+    
+    function hideRow(){
+      const row = document.getElementById('orange')
+      row.style.display = 'none'
+    }
+
+    function showRow(){
+      const row = document.getElementById('orange')
+      row.style.display = '' // block 이나 inline 으로하면 안됨. 그냥 display 속성이 없던상태로 되돌리기 위해 '' 를 씀.
+    }
+    
+  </script>
+</body>
+</html>

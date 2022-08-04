@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>문자열에서 첫번째, 마지막 문자 가져오는 4가지 방법</h4>
+  <script>
+    
+    let str = "안녕하세요?"
+    
+    //charAt(인덱스)
+    let first_char = str.charAt(0);
+    let second_char = str.charAt(3);
+    let last_char = str.charAt(str.length-1)
+
+    console.log("첫번째 문자 : "+first_char)
+    console.log("네번째 문자 : "+second_char)
+    console.log("마지막 문자 : "+last_char)
+
+    //substr(시작인덱스, 길이)
+    let first_str = str.substr(0,1);
+    let second_str = str.substr(3,1);
+    let last_str = str.substr(str.length-1,1)
+
+    console.log("첫번째 문자 : "+first_str)
+    console.log("네번째 문자 : "+second_str)
+    console.log("마지막 문자 : "+last_str)
+
+    //substring(시작인덱스, 끝인덱스)
+    let first_str2 = str.substring(0,1) //인덱스 1번까지 출력하는게 아닌, 1번의 전 인덱스까지만 출력
+    let second_str2 = str.substring(3,4)
+    let last_str2 = str.substring(str.length-1, str.length)
+
+    console.log("첫번째 문자 : "+first_str2)
+    console.log("네번째 문자 : "+second_str2)
+    console.log("마지막 문자 : "+last_str2)
+
+    //slice(시작인덱스, 끝인덱스)
+    
+    
+  </script>
+</body>
+</html>

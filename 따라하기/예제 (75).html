@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>빈 객체 체크하는 3가지 방법</h4>
+  <script>
+    
+    //Object.keys() 함수
+
+    function isEmptyObj(obj){
+      if(obj.constructor === Object && Object.keys(obj).length === 0){
+        //obj의 constructor(생성자)가 Object인지 확인하고, 맞으면 obj의 키 개수가 0인지 확인
+        return true
+      }
+      return false
+    }
+
+    const obj1 = {}
+    const obj2 = {name:'js'}
+    const str = "java"
+
+    console.log(isEmptyObj(obj1))
+    console.log(isEmptyObj(obj2))
+    console.log(isEmptyObj(str))
+
+    //반복문 사용하기
+    for(let prop in obj){
+      if(obj.hasOwnProperty(prop)){
+        return false;
+      }
+      return true
+    }
+    //어려워 안해
+    
+  </script>
+</body>
+</html>

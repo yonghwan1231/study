@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 합치기 3가지 방법</h4>
+  <script>
+    
+    const arr1 = ['a','b','c']
+    const arr2 = arr1.concat('d','e','f')
+
+    console.log(arr2)
+    console.log(arr2.length)
+
+    const arr3 = ['a','b','c']
+    const arr4 = ['d','e','f']
+    const arr5 = ['g','h','i']
+    const arrSum = [
+      ...arr3,
+      ...arr4,
+      ...arr5
+    ]
+
+    console.log(arrSum)
+
+    const arr6 = ['a','b','c']
+    const arr7 = ['d','e','f']
+    const arr8 = arr6.push(arr7)
+
+    console.log(arr6)
+    
+  </script>
+</body>
+</html>

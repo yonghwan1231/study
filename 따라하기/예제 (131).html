@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>테이블에 행 추가, 삭제하기 (버튼 클릭)</h4>
+
+  <table id='fruits' border="1">
+    <tr><td>사과</td><td>apple</td></tr>
+    <tr><td>오렌지<td>orange</td></tr>
+    <tr><td>바나나</td><td>banana</td></tr>
+  </table>
+  <input type='button' value='행추가' onclick='addRow()'>
+  <input type='button' value='행삭제' onclick='deleteRow(-1)'> 
+
+  <script>
+
+    //행 추가하기 insertRow(), insertCell()
+    function addRow(){
+      const table = document.getElementById('fruits')
+
+      const newRow = table.insertRow(1) //파라미터는 행이 테이블에 들어갈 위치. 미입력시 기본값은 -1이고, 테이블의 가장 마지막 위치에 새 행을 추가
+
+      const newCell1 = newRow.insertCell(0); //파라미터는 셀이 들어갈 위치. 미입력시 기본값은 -1이고, 행의 가장 뒤에 새로운 cell을 추가한다. 셀이 추가될때는 이전셀이 존재 해야한다. 처음부터 2열 위치에 생성 불가, 왼쪽부터 생성 가능함
+      const newCell2 = newRow.insertCell(1);
+      newCell1.innerText = '새 과일'
+      newCell2.innerText = 'New Fruit'
+    }
+    
+    //행 삭제하기 deleteRow()
+    function deleteRow(rownum){
+      const table = document.getElementById('fruits')
+
+      const newRow = table.deleteRow(rownum) //파라미터는 삭제될 행의 위치. 0 입력 시 맨 위에서부터(첫행부터) 삭제된다. -1 입력 시 맨 아래부터(마지막행부터) 삭제된다.
+      console.log(table)
+    }
+
+  </script>
+</body>
+</html>

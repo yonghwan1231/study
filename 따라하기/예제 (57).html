@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 정렬하기 (오름차순, 내림차순, 문자열, 객체)</h4>
+  <script>
+    
+    const arr = [1,4,3,2,5,6,8,7,10]
+    arr.sort(function(a,b){
+      return a-b
+    })
+    console.log(arr)
+
+    const arrString = ['banana','b','boy']
+
+    arrString.sort(function(a,b){
+      if(a<b) return 1;
+      if(a>b) return -1;
+      if(a===b) return 0;
+    })
+    console.log(arrString)
+
+    //가격순정렬 (객체정렬)
+
+    const arrPrice = [
+      {name:'banana',price:3000},
+      {name:'apple',price:1000},
+      {name:'orange',price:500},
+      {name:'melon',price:5000}
+    ]
+
+    arrPrice.sort(function(a,b){
+      return a.price - b.price
+    })
+    console.log(arrPrice)
+
+    for(i=0;i<arrPrice.length;i++){
+      console.log(arrPrice[i])
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>ul, ol에 li 동적으로 추가, 삭제 하기</h4>
+
+  <ul id="my_ul"></ul>
+
+  <input type="text" id="li_text">
+  <input type="button" value="추가" id="add_li" onclick="addList()">
+  <input type="button" value="위에서부터 삭제" id="del_li" onclick="delList1()">
+  <input type="button" value="아래서부터 삭제" id="del_li" onclick="delList2()">
+  <script>
+    
+    const myUl = document.getElementById('my_ul')
+    const addLi = document.getElementById('add_li')
+    const liText = document.getElementById('li_text')
+    const delLi = document.getElementById('del_li')
+
+    function addList(){
+      myUl.innerHTML += '<li>'+liText.value+'</li>'
+    }
+
+    function delList1(){
+      if(myUl.getElementsByTagName('li').length>0){
+        myUl.getElementsByTagName('li')[0].remove()
+      }
+    }
+
+    function delList2(){
+      const liLength = myUl.getElementsByTagName('li').length-1
+      if(myUl.getElementsByTagName('li').length>0){
+        myUl.getElementsByTagName('li')[liLength].remove()
+      }
+    }
+    
+  </script>
+</body>
+</html>

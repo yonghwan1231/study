@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+
+#dateHead {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  position: relative;
+  height: 100px;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+
+#dateHead>strong {
+  display: inline-block;
+  width: 120px;
+  font-size: 50px;
+  margin: 0 120px;
+}
+
+#dateHead>#year {
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#dateHead>button {
+  border: none;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+#dateHead>button:active {
+  background-color: dodgerblue;
+}
+
+#nowMonth>.year {
+  font-size: 20px;
+}
+
+#myTable {
+  margin: 0 auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#myTable td {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#myTable td.endTd,
+#myTable td.startTd {
+  opacity: 0.2;
+}
+
+#myTable td:first-child {
+  color: red;
+}
+
+#myTable td:last-child {
+  color: blue;
+}

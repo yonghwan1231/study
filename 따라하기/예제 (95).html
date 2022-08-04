@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>class 추가/변경/삭제/읽기 (className, classList)</h4>
+  <div id="ex" class="foo bar">클래스 읽기용 박스</div>
+  <input type="button" onclick="readClass()" value="클래스 읽기1">
+  <br>
+  <input type="button" onclick="readClass2()" value="클래스 읽기2">
+  <br>
+  <input type="button" onclick="classLength()" value="클래스 개수">
+  <br>
+  <input type="button" onclick="individualClass()" value="클래스 이름 하나씩 읽기">
+  <br>
+  <input type="button" onclick="setClassName()" value="클래스 이름 수정">
+  <br>
+  <input type="button" onclick="setClassName2()" value="기존 클래스에 추가">
+  <br>
+  <input type="button" onclick="setClassName3()" value="기존 클래스에 추가2">
+  <br>
+  <input type="button" onclick="removeClass()" value="클래스 foo 삭제">
+  <br>
+  <input type="button" onclick="toggleClass()" value="클래스 추가혹은 삭제">
+  <br>
+  <input type="button" onclick="ifToggleClass()" value="클래스 조건 삭제">
+  <br>
+  <input type="button" onclick="checkClass('foo')" value="클래스 이름 찾기">
+
+  <script>
+    
+    //클래스 읽기1 : className
+    function readClass(){
+      console.log(document.getElementById('ex').className)
+    }
+
+    //클래스 읽기2 : classList
+    function readClass2(){
+      console.log(document.getElementById('ex').classList)
+    }
+
+    //클래스 개수 : classList.length
+    function classLength(){
+      console.log(document.getElementById('ex').classList.length)
+    }
+
+    //클래스 하나씩 읽기 : classList[n] or classList.item(n)
+    function individualClass(){
+      const classLength = document.getElementById('ex').classList.length;
+      for(let i=0;i<classLength;i++){
+        console.log(document.getElementById('ex').classList.item(i)) // classList[i] 로 적어도 됨
+      }
+    }
+
+    //클래스 수정 : className = '이름'
+    function setClassName(){
+      document.getElementById('ex').className = 'ex'
+      console.log(document.getElementById('ex').className)
+    }
+
+    //기존 클래스에 추가 : className += '이름'
+    function setClassName2(){
+      document.getElementById('ex').className += ' ex' //띄어쓰기를 해줘야 클래스가 분리됨
+      console.log(document.getElementById('ex').className)
+    }
+
+    //기존 클래스에 추가 : classList.add('이름','이름','이름')
+    function setClassName3(){
+      document.getElementById('ex').classList.add('ex1','ex2','ex3') //띄어쓰기를 하지 않아도 클래스가 분리됨, 여러개 추가도 가능
+      console.log(document.getElementById('ex').className)
+    }
+
+    //클래스 삭제 : classList.remove('삭제할 클래스명')
+    function removeClass(){
+      document.getElementById('ex').classList.remove('foo')
+    }
+
+    //클래스 삭제 : classList.toggle('삭제or추가할 클래스명')
+    function toggleClass(){
+      document.getElementById('ex').classList.toggle('ex')
+      //toggle은 해당클래스가 없으면 추가, 있으면 삭제함
+    }
+
+    //클래스 조건 삭제 : classList.toggle('삭제or추가할 클래스명',조건문)
+    let cnt = 0
+    function ifToggleClass(){
+      cnt++
+      document.getElementById('ex').classList.toggle('ex',cnt % 3 === 0) //cnt가
+      //2번째 파라미터로 입력받은 조건문이 true이면 클래스가 추가되고,
+      //2번째 파라미터로 입력받은 조건문이 false이면 클래스가 삭제된다.
+      //이 함수는 버튼을 3회 누를때마다 클래스가 추가되는 함수이다.
+    }
+
+    //특정 클래스 이름이 class속성에 포함돼있는지 확인하기 : classList.contains('찾을이름')
+    function checkClass(className) {
+      let isExist = document.getElementById('ex').classList.contains(className);
+  
+      alert(isExist);
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>테이블 행 개수 구하기</h4>
+
+  <table id='myTable' border='1'>
+    <thead>
+      <tr><th>Header</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Row 1</td></tr>
+      <tr><td>Row 2</td></tr>
+      <tr><td>Row 3</td></tr>
+    </tbody>
+    <tfoot>
+        <tr><td>Footer</td></tr>
+    </tfoot>
+  </table>
+  <div id='result'></div>
+  <script>
+    
+    const table = document.getElementById('myTable')
+
+    document.getElementById('result').innerText = '행 : '+table.rows.length+'\ntbody행 : '+table.tBodies[0].rows.length
+
+
+    
+  </script>
+</body>
+</html>

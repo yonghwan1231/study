@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>문자열 공백 제거하기 </h4>
+  <script>
+    
+    let str1 = " 문자열의 앞 뒤 공백 제거하기    "
+    
+    console.log(str1.trim()); //trim()
+    // console.log(str.replace(/^\s+|\s+$/gm,'')); //replace + 정규식
+    console.log(str1.replace(/(\s*)/g, "")) //모든 공백 제거
+
+  </script>
+</body>
+</html>

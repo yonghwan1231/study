@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 특정 값 위치(index) 찾기 - findIndex()</h4>
+  <script>
+
+    const arr = [1,2,3,4,5]
+
+    //indexOf(), lastnIndexOf() : 이전문서 참조
+
+    //includes(찾으려는값, 검색시작인덱스)
+    console.log(arr.includes(1)) // 검색시작인덱스 생략 시 배열 전체를 검색
+    console.log(arr.includes(1,1)) // 값의 위치가 아닌 값의 존재유무를 판별하며 true/false를 반환한다.
+    
+    //findIndex()
+    function findNumberOne(el){
+      if(el===5) return true;
+    }
+
+    console.log(arr.findIndex(findNumberOne)) //인자의 반환값으로 true를 받으면 찾는값의 인덱스를 반환한다.
+
+    function findEvenNumber(el){
+      if(el%2===0) return true; // 다양한 조건을 넣을수 있다. 짝수를 찾으려면 2로 나눴을때 나머지가 0이 되는 값을 찾으라고 입력하면 된다. 최초로 찾은 값의 인덱스만 반환한다.
+    }
+
+    console.log(arr.findIndex(findEvenNumber))
+
+    const objectArr = [
+      {name : 'banana', price : 1000},
+      {name : 'apple', price : 1500},
+      {name : 'orange', price : 2000}
+    ];
+
+    function findApple(el){
+      if(el.name==='apple') return true
+    }
+
+    console.log(objectArr.findIndex(findApple)) 
+
+  </script>
+</body>
+</html>

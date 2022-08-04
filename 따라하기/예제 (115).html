@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>input 입력값 가져와서 출력하기</h4>
+
+  <form action="">
+    입력 즉시 출력 <input id='name1' onkeyup="printName()"><br>
+    입력 종료 후 출력 <input id='name2' onchange="printName2()">
+  </form>
+  <div id="result"></div>
+  <script>
+    
+
+    function printName(){
+      const name = document.getElementById('name1').value;
+      document.getElementById('result').innerText = name
+    }
+
+    function printName2(){
+      const name = document.getElementById('name2').value;
+      document.getElementById('result').innerText = name
+    }
+    
+  </script>
+</body>
+</html>

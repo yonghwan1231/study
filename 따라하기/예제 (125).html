@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>체크박스 하나만 선택되도록 하기</h4>
+
+  <input type="checkbox" name="pet" value="dog" onclick="onlyOneCheck(this)"> 개<br>
+  <input type="checkbox" name="pet" value="cat" onclick="onlyOneCheck(this)"> 고양이<br>
+  <input type="checkbox" name="pet" value="rabbit" onclick="onlyOneCheck(this)"> 토끼
+  <script>
+    
+    function onlyOneCheck(i){
+      if(i.checked === true){
+        document.querySelectorAll('input[name="pet"]').forEach(function(el){
+          el.checked = false
+        })
+        i.checked = true
+      }
+    }
+    
+  </script>
+</body>
+</html>

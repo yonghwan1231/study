@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>경과 시간 계산하기 (시간, 분, 초)</h4>
+  <script>
+    
+    //dateObj.getTime()
+
+    const date1 = new Date(2022,0,1,0,0,0) // 2022년 1월 1일 0시 0분 0초
+    console.log(date1.getTime()) // 날짜와 시간을 밀리초 단위로 변환해준다.
+    const date2 = new Date(2022,0,1,2,30,30) // 2022년 1월 1일 2시 30분 30초
+    console.log(date2.getTime())
+
+    const elapsedMsec = date2.getTime() - date1.getTime() // 밀리초 단위로 두 날짜의 차이를 구했다. 9030000밀리초 차이
+    console.log(elapsedMsec)
+
+    const elapsedSec = elapsedMsec/1000 // 밀리초단위를 초단위로 변환하기 위해 1000으로 나누어 주었다. 9030초 차이
+    console.log(elapsedSec)
+
+    const elapsedMin = elapsedSec/60 // 초단위를 분단위로 변환하기 위해 60으로 나누어 주었다. 150.5분 차이
+    console.log(elapsedMin)
+
+    const elapsedHour = elapsedMin/60 // 분단위를 시간단위로 변환하기 위해 60으로 나누어 주었다. 2.5시간 차이
+    console.log(elapsedHour)
+
+    //dateObj.getTime()를 굳이 안써도 된다
+    const easyElapseTime = date2 - date1
+    console.log(easyElapseTime) // getTime()을 생략해서 뺄셈 해줘도 같은 결과가 나옴. (밀리초단위의 차이)
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 초기화(빈 배열로)하는 4가지 방법</h4>
+  <script>
+    
+    //빈 배열 할당
+    let arr1 = [1,2,3,4,5]
+    arr1 = []
+    console.log(arr1)
+
+    //배열 길이 설정
+    let arr2 = [1,2,3,4,5]
+    arr2.length = 0
+    console.log(arr2)
+
+    //splice함수
+    let arr3 = [1,2,3,4,5]
+    arr3.splice(0,arr3.length) //arr3의 인덱스0번부터 arr3의 길이값(끝)까지 삭제
+    console.log(arr3)
+    
+    //pop함수
+    let arr4 = [1,2,3,4,5]
+    while(arr4.length>0){
+      arr4.pop()
+    }
+    console.log(arr4)
+    
+  </script>
+</body>
+</html>

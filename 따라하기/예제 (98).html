@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>div 안의 내용 가져오기, 추가, 변경, 삭제 (text, html)</h4>
+
+  <div id="my_div">
+    <span style="color:red">가져오기</span>
+  </div>
+  <input type="button" onclick="get_innerHTML()" value="innerHTML">
+  <input type="button" onclick="get_innerText()" value="innerText">
+  <input type="button" onclick="get_textContent()" value="textContent">
+
+  <div id="my_div2">
+    <span style="color:red">변경하기</span>
+  </div>
+  <input type="button" onclick="set_innerHTML()" value="innerHTML">
+  <input type="button" onclick="set_innerText()" value="innerText">
+  <input type="button" onclick="set_textContent()" value="textContent">
+
+  <div id="my_div3">
+    <span style="color:red">내용추가</span>
+  </div>
+  <input type="button" onclick="add_innerHTML()" value="innerHTML">
+  <input type="button" onclick="add_innerText()" value="innerText">
+  <input type="button" onclick="add_textContent()" value="textContent">
+
+  <div id="my_div4">
+    <span style="color:red">텍스트추가</span>
+  </div>
+  <input type="button" onclick="addTxt_appendChild()" value="innerHTML">
+
+  <div id="my_div5">
+    <span style="color:red">새로운 div 추가</span>
+  </div>
+  <input type="button" onclick="appendDiv()" value="innerHTML">
+
+  <div id="my_div6">
+    <span style="color:red">div 내용 삭제</span>
+  </div>
+  <input type="button" onclick="deleteText()" value="innerHTML">
+
+  <script>
+    
+    //가져오기
+    function get_innerHTML(){
+      alert(document.getElementById('my_div').innerHTML)
+    }
+    function get_innerText(){
+      alert(document.getElementById('my_div').innerText)
+    }
+    function get_textContent(){
+      alert(document.getElementById('my_div').textContent)
+    }
+
+    //변경하기
+    function set_innerHTML(){
+      document.getElementById('my_div2').innerHTML = '<span style="color:blue">innerHTML : 파란색으로</span>'
+    }
+    function set_innerText(){
+      document.getElementById('my_div2').innerText = 'innerText : 텍스트만 변경'
+    }
+    function set_textContent(){
+      document.getElementById('my_div2').textContent = 'textContent : 텍스트만 변경'
+    }
+
+    //내용추가
+    function add_innerHTML(){
+      document.getElementById('my_div3').innerHTML += '<strong>innerHTML</strong>'
+    }
+    function add_innerText(){
+      document.getElementById('my_div3').innerText += 'innerText'
+    }
+    function add_textContent(){
+      document.getElementById('my_div3').textContent += 'textContent'
+    }
+
+    //텍스트추가
+    function addTxt_appendChild(){
+      const content = document.createTextNode("appendChild")
+      document.getElementById('my_div4').appendChild(content) // 괄호안에 그냥 '내용' 쓰면 안되고 위처럼 텍스트노드를 생성해준 뒤 변수에 담아서 불러와야 함 
+    }
+
+    //새로운 div 추가
+    function appendDiv(){
+      const newDiv = document.createElement("div")
+      newDiv.style.backgroundColor='yellow';
+      const newTxt = document.createTextNode("appendChild")
+      newDiv.appendChild(newTxt)
+      document.getElementById('my_div5').appendChild(newDiv) // 괄호안에 그냥 <div>쓰면 안되고 위처럼 엘리먼트를 생성해준 뒤 변수에 담아서 불러와야 함
+    }
+
+    //div 내용 삭제
+    function deleteText(){
+      document.getElementById('my_div6').innerText=''
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>테이블에 열(column) 추가, 삭제하기</h4>
+  <table id='fruits' border="1">
+    <tr><td>사과</td><td>apple</td></tr>
+    <tr><td>오렌지<td>orange</td></tr>
+    <tr><td>바나나</td><td>banana</td></tr>
+  </table>
+  <input type='button' value='열추가' onclick='addColumn()' />
+  <input type='button' value='열삭제' onclick='delColumn()' />
+  <script>
+    
+    //열추가
+    function addColumn(){
+      const table = document.getElementById('fruits');
+
+      for(let i = 0; i < table.rows.length; i++){
+        const newCell = table.rows[i].insertCell(-1)
+        newCell.innerText = 'NewCell'
+      }
+    }
+
+    //열삭제
+    function delColumn(){
+      const table = document.getElementById('fruits');
+
+      for(let i = 0; i < table.rows.length; i++){
+        table.rows[i].deleteCell(-1);
+      }
+    }
+    
+  </script>
+</body>
+</html>

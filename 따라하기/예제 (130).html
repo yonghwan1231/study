@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>숫자 3자리(천단위) 마다 콤마 찍는 2가지 방법</h4>
+
+  <p>
+    toLocaleString() 함수는 숫자를 로컬의 language format에 맞는 문자열로 변경해준다.<br>
+    파라미터로 아무것도 전달되지 않으면 사용자 로컬 환경의 locale을 dafault로 사용한다.
+  </p>
+  <script>
+    
+    const n1 = 12345.6789;
+    const n2 = -12345.6789;
+
+    // 정규식(Regular Expression) 이용하기
+    const cn1 = n1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+    const cn2 = n2.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+    //정규식 해석까진 어렵지만 아무튼 저렇게 쓰면 3자리마다 콤마가 찍힌다.
+    console.log(cn1)
+    console.log(cn2)
+
+    //toLocaleString() 함수 이용하기
+    //number.toLocaleString(locales, options)
+
+    const cn3 = n1.toLocaleString()
+    const cn4 = n1.toLocaleString()
+
+    console.log(cn3)
+    console.log(cn4)
+    
+    
+  </script>
+</body>
+</html>

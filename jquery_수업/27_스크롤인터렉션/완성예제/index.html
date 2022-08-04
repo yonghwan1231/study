@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<title>step10_complete</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css" />  
+        <script src="js/jquery-1.11.1.min.js"></script>	
+		<script src="js/instagram.js"></script>
+		<script src="js/myScroll.js"></script>
+		<script src="js/custom.js"></script>
+		<script>		
+			$(document).ready(function(){				
+				
+				 $("body").myScroll({		
+					item : ".myScroll", //스크롤이 자동으로 움직일 박스의 공통클래스명
+					header : "", //헤더의 아이디명		
+					navi :".scrollNavi", //메뉴의 아이디명				
+					duration : 600,   //스크롤시의 속도
+					ease : "swing", //스크롤시 가속도
+					isOn : "on",  //활성화되는 버튼의 클래스명
+					
+					full_screen_box : "#box1", //풀스크린으로 바꾸고 싶은 박스의 아이디명
+					base_line : 0,  //버튼이 활성화되는 시작점
+					target_base_line : 0, //보통 헤더의 높이만큼				
+					enable_change_header : true 	
+				});		
+				
+			});		
+		</script>
+	</head>	
+	<body>	
+        <ul class="scrollNavi">
+            <li><a href="#box1" class="on">box1</a></li>
+            <li><a href="#box2">box2</a></li>
+            <li><a href="#box3">box3</a></li>
+            <li><a href="#box4">box4</a></li>
+            <li><a href="#box5">box5</a></li>           
+        </ul>
+		<div id="box1" class="myScroll">
+		
+			
+			<video autoplay loop muted>
+				<source src="img/bgVid.mp4" />
+			</video>
+		
+			
+			<h1>Designers <span>Code2</span></h1>
+			<ul class="naviBox">
+				<li><strong>HOME</strong></li>
+				<li><strong>COMPANY</strong></li>
+				<li><strong>INTRODUCE</strong></li>
+				<li><strong>PRODUCTS</strong></li>
+				<li><strong>YOUTUBE</strong></li>
+				<li><strong>GALLERY</strong></li>
+				<li><strong>COMMUNITY</strong></li>
+				<li><strong>LOCATION</strong></li>
+			</ul>
+		</div>
+
+		<div id="box2" class="myScroll">
+			<h2 class="title">INTRODUCTION</h2>
+			<div class="box21">
+				<div>
+					<span></span>
+					<a href="#"><i class="fas fa-copy"></i></a>
+					<p>ICON</p>
+				</div>
+				<div>
+					<span></span>
+					<a href="#"><i class="fas fa-calendar"></i></a>
+					<p>ICON</p>
+				</div>
+				<div>
+					<span></span>
+					<a href="#"><i class="fas fa-chart-pie"></i></a>
+					<p>ICON</p>
+				</div>
+				<div>	
+					<span></span>
+					<a href="#"><i class="fas fa-folder-open"></i></a>
+					<p>ICON</p>
+				</div>
+				<div>
+					<span></span>
+					<a href="#"><i class="fas fa-tag"></i></a>
+					<p>ICON</p>
+				</div>
+				<div>
+					<span></span>
+					<a href="#"><i class="fas fa-envelope"></i></a>
+					<p>ICON</p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="box3" class="myScroll">
+			<h2 class="title">ABOUT COMPANY</h2>
+			<p>Here comes comapany description.Here comes comapany description.</p>
+			<div class="box31">
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes sub title.</h3>
+					<p>Here comes contents description in detail.Here comes contents description in detail.</p>
+					<a href="#">View More</a>
+				</div>
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes sub title.</h3>
+					<p>Here comes contents description in detail.Here comes contents description in detail.</p>
+					<a href="#">View More</a>
+				</div>
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes sub title.</h3>
+					<p>Here comes contents description in detail.Here comes contents description in detail.</p>
+					<a href="#">View More</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="box4" class="myScroll">
+			<p>"Banner Contetns Description & Slogan Comes Here." Sub contents Text</p>
+		</div>
+
+		<div id="box5" class="myScroll">
+			<h2 class="title">RECENT COMMENTS</h2>
+
+			<div class="box51">
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes title</h3>
+					<span>2018.09.07</span>
+					<strong>홍길동</strong>
+				</div>
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes title</h3>
+					<span>2018.09.07</span>
+					<strong>홍길동</strong>
+				</div>
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes title</h3>
+					<span>2018.09.07</span>
+					<strong>홍길동</strong>
+				</div>
+				<div>
+					<div class="pic"></div>
+					<h3>Here comes title</h3>
+					<span>2018.09.07</span>
+					<strong>홍길동</strong>
+				</div>
+			</div>
+
+			<ul class="box52">
+				<li>
+					<h3>Community</h3>
+					<a href="#">게시글 미리보기내용이 들어올 자리입니다.</a>
+					<strong>홍길동</strong>
+					<span>2018.09.07</span>
+				</li>
+				<li>
+					<h3>Community</h3>
+					<a href="#">게시글 미리보기내용이 들어올 자리입니다.</a>
+					<strong>홍길동</strong>
+					<span>2018.09.07</span>
+				</li>
+				<li>
+					<h3>Community</h3>
+					<a href="#">게시글 미리보기내용이 들어올 자리입니다.</a>
+					<strong>홍길동</strong>
+					<span>2018.09.07</span>
+				</li>
+				<li>
+					<h3>Community</h3>
+					<a href="#">게시글 미리보기내용이 들어올 자리입니다.</a>
+					<strong>홍길동</strong>
+					<span>2018.09.07</span>
+				</li>
+				<li>
+					<h3>Community</h3>
+					<a href="#">게시글 미리보기내용이 들어올 자리입니다.</a>
+					<strong>홍길동</strong>
+					<span>2018.09.07</span>
+				</li>
+				<li>
+					<h3>Community</h3>
+					<a href="#">게시글 미리보기내용이 들어올 자리입니다.</a>
+					<strong>홍길동</strong>
+					<span>2018.09.07</span>
+				</li>
+			</ul>
+		</div>
+	
+
+		<div id="box7">
+			<div class="box71">
+				<p>2018 COPYRIGHT CHOI SUNGIL ALL RIGHT RESERVED.</p>
+				<ul>
+					<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</body>		
+</html>																																																																																																																								
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

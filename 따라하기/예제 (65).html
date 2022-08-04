@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 거꾸로 뒤집는 3가지 방법</h4>
+  <script>
+    
+    const arr = ['apple','banana','orange']
+
+    //for문으로 배열 거꾸로
+    const reverseFor = [];
+    for(i=arr.length-1;i>=0;i--){
+      reverseFor.push(arr[i])
+    }
+    console.log(reverseFor)
+
+    //reverse() 함수로 배열 거꾸로
+    const reverse = arr.reverse()
+    console.log(arr) // reverse() 함수 사용시 원본배열이 거꾸로 뒤집힌다.
+    
+    //reverse() 함수로 배열 거꾸로(원본배열 유지)
+    const copyReverse = [...arr].reverse() // [...arr] 는 전개연산자로, 배열이나 객체의 원소들을 꺼내어 복사해준다. 즉 [...arr] 는 arr가 복제된 새로운 배열이다.
+    console.log(copyReverse)
+    console.log(arr) // 유지
+
+  </script>
+</body>
+</html>

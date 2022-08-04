@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>체크박스에 체크된 항목 개수 구하기</h4>
+
+  <input type="checkbox" name="pet" value="dog" onclick="checkedLength()"> 개
+  <input type="checkbox" name="pet" value="cat" onclick="checkedLength()"> 고양이
+  <input type="checkbox" name="pet" value="rabbit" onclick="checkedLength()"> 토끼
+
+  <div id="result"></div>
+  <script>
+    
+    function checkedLength(){
+      const chkbox = 'input[name="pet"]:checked';
+      const chkboxAll = document.querySelectorAll(chkbox)
+
+      document.getElementById('result').innerText = chkboxAll.length
+    }
+    
+  </script>
+</body>
+</html>

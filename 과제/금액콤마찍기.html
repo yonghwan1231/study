@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    var input = prompt("숫자를 입력하세요.")
+
+    var startLength = -3
+    var output = input
+
+    if (isNaN(parseInt(input)) === false) {
+      for (i = 0; i < input.length / 3 - 1; i++) {
+        var sliceValu = output.slice(startLength - i)
+        var addComma = "," + sliceValu
+        var output = input.slice(0, startLength) + addComma
+        startLength -= 3
+      }
+      console.log(output)
+    } else {
+      alert("숫자만 입력하세요!")
+    }
+
+    // for(i=0; i<(input.length/3)-1; i++){
+    //   output = output.replace(output.slice(startLength-i),","+output.slice(startLength-i))
+    //   startLength-=3
+    // }
+    // console.log(output)
+
+  </script>
+</body>
+
+</html>

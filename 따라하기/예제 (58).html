@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 값 중복 체크하는 3가지 방법</h4>
+  <script>
+    
+    const arr = ['a','b','c','a','d','a']
+
+    let dupCheck = false
+    for (i=0;i<arr.length;i++){
+      let currEl = arr[i]
+      for(j=i+1;j<arr.length;j++){
+        if(currEl===arr[j]){
+          dupbCheck = "중복값이 확인되었습니다.";
+          break;
+        }
+      }
+      if(dupCheck){
+        break;
+      }
+    }
+
+    console.log("중복값이 있는가? : "+dupCheck)
+
+
+    //set 객체 이용하기
+    const set = new Set(arr) //set 객체는 중복값을 하나만 남기고 자동으로 제거한다. 그래서 중복값이 존재하는 배열이 인자로 주어지면 new Set(arr)의 크기는 arr의 길이에서 중복값의 개수를 뺀 만큼의 크기가 된다.
+
+    //이를 활용하여 new Set(arr)의 크기가 arr의 길이보다 작다면 중복값이 제거된 것이므로 중복값이 있다는것을 확인할수 있다.
+
+    if(arr.length!==set.size){ //new Set()의 크기는 .length가 아닌 .size 로 구한다.
+      console.log("중복값이 확인되었습니다.")
+    }
+
+    //some, indexOf, lastIndexOf 함수 활용
+    function dupCheck2(arrSample){
+      const isDup = arrSample.some(function(el){
+        return arrSample.indexOf(el) !== arrSample.lastIndexOf(el)
+      })
+      return isDup
+    }
+
+    console.log(dupCheck2(['a','b','c','a']))
+    
+  </script>
+</body>
+</html>

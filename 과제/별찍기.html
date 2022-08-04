@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    starMountain()
+
+    function starMountain(){
+      var input = prompt("입력")
+      var inputValu = input
+
+      if(isNaN(parseInt(input)) === false && input>0){
+        for(a=0; a<input; a++){
+          var blank = ""
+          var blank2 = " "
+          for(b=inputValu-a; b>1; b--){
+            blank += " "
+          }
+          for(c=10; c<a; c++){
+            blank2 += " " + " "
+          }
+          if(a==0){
+            console.log(blank+"*")
+          } else if(a>0){
+            console.log(blank+"*"+blank2+"*")
+          }
+        }
+      } else if(input == null){
+        return false
+      } else{
+        alert("0 이상의 숫자만 입력하세요.")
+        starMountain()
+      }
+    }
+
+  </script>
+</body>
+</html>

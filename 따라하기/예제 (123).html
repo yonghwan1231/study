@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>체크박스 전체 선택 / 전체 해제 구현하기</h4>
+
+  <input type="checkbox" onclick="checkedAll(this)"> 전체선택<br>
+  <input type="checkbox" name="pet" value="dog"> 개<br>
+  <input type="checkbox" name="pet" value="cat"> 고양이<br>
+  <input type="checkbox" name="pet" value="rabbot"> 토끼
+
+  <script>
+    
+    function checkedAll(selectAll){
+      const chkbox = document.getElementsByName('pet')
+
+      chkbox.forEach(function(el){
+        el.checked = selectAll.checked
+      })
+    }
+    
+  </script>
+</body>
+</html>

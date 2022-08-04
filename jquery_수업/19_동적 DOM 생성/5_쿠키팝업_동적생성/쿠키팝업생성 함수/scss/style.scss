@@ -1,0 +1,31 @@
+@charset "utf-8";
+@import "reset";
+
+body>a {
+    margin-right:20px;
+}
+
+#popup {
+    width:500px; background:linear-gradient(45deg,rgb(233, 65, 233), hotpink);
+    border-radius:14px; box-shadow:10px 10px 20px rgba(233, 65, 233, 0.5);  
+    box-sizing:border-box; padding:40px;  color:#fff;
+
+    &::after {
+        content:''; display:block; clear:both;
+    }
+
+    .content {
+        width:100%; min-height:160px;
+    }
+    .wrap {        
+        float:left;
+
+        label {
+            font:bold 12px/1 "맑은 고딕"; color:#fff; margin-left:4px;
+        }
+    }
+    .close {
+        float:right; font:14px/1 "arial"; color:#fff; 
+    }
+}
+

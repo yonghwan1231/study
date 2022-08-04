@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>라디오 버튼(radio) 값 가져와서 출력하기</h4>
+
+  <input type='radio' name='gender' value='female' onclick='getGender(event)'>여성
+  <input type='radio'name='gender'value='male' onclick='getGender(event)'>남성 <br>
+  <input type="button" value="확인" onclick="getGender2()">
+  <div id='result'></div>
+  <div id='result2'></div>
+
+  <script>
+    
+    function getGender(e){
+      document.getElementById('result').innerText = e.target.value
+    }
+
+    function getGender2(){
+      const genderNodeList = document.getElementsByName('gender')
+
+      genderNodeList.forEach(function(node){
+        if(node.checked){
+          document.getElementById('result2').innerText = node.value;
+        }
+      })
+    }
+    
+  </script>
+</body>
+</html>

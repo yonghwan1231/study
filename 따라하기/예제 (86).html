@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>함수 실행 시간 측정하기</h4>
+  <script>
+    
+    function test(){
+      let sum = 0;
+      for(let i = 1; i<=10000000; i++){
+        sum+=i
+      }
+    }//1+2+3 ... +10000000 의 반복문을 처리하는 시간을 구하기
+    
+    let start = new Date() //함수실행전 시간
+    test()
+    let end = new Date() //함수실행후 시간
+
+    console.log(end-start) //함수실행후 시간 - 함수실행전 시간(대략 11~13밀리초)
+    
+  </script>
+</body>
+</html>

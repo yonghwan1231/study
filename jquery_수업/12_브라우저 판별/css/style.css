@@ -1,0 +1,12 @@
+body.chrome {
+    background: lightgreen;
+}
+body.ie {
+    background: lightblue;
+}
+body.edge {
+    background: pink;
+}
+body.ff {
+    background: orange;
+}

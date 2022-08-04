@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>현재 페이지 URL 가져오기</h4>
+  <script>
+
+    //http://127.0.0.1:5501/%EB%94%B0%EB%9D%BC%ED%95%98%EA%B8%B0/%EC%98%88%EC%A0%9C%20(91).html
+
+    console.log(location.href)
+    console.log(window.location.href)
+    //전체 URL 문자열을 가져옵니다.
+    console.log(window.location.protocol)
+    //마지막 ':'를 포함한 프로토콜 정보를 가져옵니다.
+    console.log(window.location.host)
+    //URL의 호스트 정보를 가져옵니다. 
+    //만약 URL에 포트번호가 있으면 ':'과 포트번호를 포함합니다.
+    console.log(window.location.hostname)
+    //URL의 호스트명을 가져옵니다
+    console.log(window.location.port)
+    //URL의 포트 번호입니다.
+    console.log(window.location.pathname)
+    //hostname 뒤의 '/'문자 뒤의 경로를 가져옵니다.
+    console.log(window.location.search)
+    //'?' 뒤의 쿼리스트링을 가져옵니다.
+    
+  </script>
+</body>
+</html>

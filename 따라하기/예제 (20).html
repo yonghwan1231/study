@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>문자열이 숫자인지 체크하기, isNaN() 함수</h4>
+  <script>
+    
+    //inNaN() : 숫자가 아닌 타입인지를 체크하는 함수
+    console.log(isNaN("123"))
+    console.log(isNaN(123))
+    //문자열 숫자이든 숫자열 숫자이든 숫자만 입력되면 false 반환
+    console.log(isNaN("abc"))
+    console.log(isNaN("123+123")) // 숫자가 아닌 기호가 섞여있어 true 반환
+    console.log(isNaN(undefined))
+    // 숫자가 아닌 값이 입력되면 true 반환
+    console.log(isNaN(null))
+    console.log(isNaN(true))
+    console.log(isNaN(false))
+    console.log(isNaN(""))
+    console.log(isNaN(' '))
+    console.log(isNaN([]))
+    //null, 불린값, 배열은 false 리턴
+    console.log(isNaN(new Date()))
+    console.log(isNaN(new Date().toString()))
+    //new Date는 숫자가 아닌 값도 있는데 아무튼 false를 반환하고, 근데 이걸 문자열로 변환 시켜주면 또 true를 반환함. 왜 그런지는 모름.
+
+  </script>
+</body>
+</html>

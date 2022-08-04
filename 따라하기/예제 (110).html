@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>버튼 클릭 시 페이지 이동하기, 새창에서 열기</h4>
+  <button id="btn" onclick="naver()">이 버튼을 누르면 네이버로 이동합니다.</button>
+  <button id="btn" onclick="naver_blank()">이 버튼을 누르면 새 창에서 네이버로 이동합니다.</button>
+  <script>
+    
+    function naver(){
+      window.location.href = 'https://www.naver.com/'
+    }
+
+    function naver_blank(){ //새창에 띄우기
+      window.open('https://www.naver.com/')
+    }
+    
+  </script>
+</body>
+</html>

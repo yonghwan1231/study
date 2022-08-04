@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>문자열 줄바꿈하는 2가지 방법 (여러줄 표현하기)</h4>
+  <script>
+    
+    //escape 문자 사용 
+    const str1 = 'a\nbc\nde' // \n (New Line)이 줄바꿈 코드임
+    console.log(str1)
+
+    //템플릿 리터럴
+    const str2 = `a
+       b
+    c` // 백틱안에 들어가는 값은 엔터로 줄바꿈과 띄어쓰기 여러번도 적용된다.
+    console.log(str2)
+    
+  </script>
+</body>
+</html>

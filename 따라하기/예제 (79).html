@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>날짜 계산하기 (년/월/일 더하기, 빼기)</h4>
+  <script>
+    
+    let date = new Date(2022,1,1);
+    console.log('기준일자 : '+date)
+    
+    //연도 더하기, 빼기
+    date.setFullYear(date.getFullYear()+1)
+    console.log('1년 후 : '+date)
+    date.setFullYear(date.getFullYear()-1)
+    console.log('1년 전 : '+date)
+
+    //월 더하기, 빼기
+    date.setMonth(date.getMonth()+1)
+    console.log('1달 후 : '+date)
+    date.setMonth(date.getMonth()-1)
+    console.log('1달 후 : '+date)
+
+    //일 더하기, 빼기
+    date.setDate(date.getDate()+10)
+    console.log('10일 후 : '+date)
+    date.setDate(date.getDate()-10)
+    console.log('10일 전 : '+date)
+    
+  </script>
+</body>
+</html>

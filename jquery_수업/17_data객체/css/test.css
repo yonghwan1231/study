@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+*{
+  margin: 0 auto;
+  padding: 0;
+}
+
+.time{
+  width: 400px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  font-size: 40px;
+  background:linear-gradient(0deg,grey,white 80%)
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 중복 값 개수 구하기</h4>
+  <script>
+    
+    const arr = ['a','b','c','a','b','a']
+
+    //forEach 함수 이용하기
+    const result = {};
+    arr.forEach(function(el){
+      result[el] = (result[el] || 0)+1 
+      // 처음에는 result[el] = (undifined || 0)+1 라서 0+1 이 된다
+      // 이후부터는 중복값 검출시 result[el] = (1 || 0)+1 라서 1+1 가 된다. or 연산자는 좌항이 true이면 우항검사를 생략하는 특성을 이용함. 처음에 0+1로 값이 셋팅되면 중복값 검출시 result[el] 는 true 상태이므로 우항인 0으로 넘어가지않고 좌항값에 1을 더하고 끝남.
+    })
+
+    console.log(JSON.stringify(result))
+    //JSON.stringfy() 함수는 객체를(혹은 Javascript값을) JSON 문자열로 변환한다.
+
+    //reduce 함수 이용하기
+    const reduceCheck = arr.reduce(function(accu,curr){
+      accu[curr] = (accu[curr] || 0)+1;
+      //= {}[현재 검사중인 원소] = ({}[현재 검사중인 원소]) || 0) + 1
+      return accu;
+      //= return {}
+    }, {})
+
+    console.log(JSON.stringify(reduceCheck))
+
+    //map객체 이용
+    const mapArr = arr.reduce(function(accu,curr){
+      accu.set(curr, (accu.get(curr)||0)+1)
+      return accu;
+    }, new Map())
+
+    //new Map() – 맵을 만듭니다.
+    //map.set(key, value) – key를 이용해 value를 저장합니다.
+    //map.get(key) – key에 해당하는 값을 반환합니다. key가 존재하지 않으면 undefined를 반환합니다.
+    //map.has(key) – key가 존재하면 true, 존재하지 않으면 false를 반환합니다.
+    //map.delete(key) – key에 해당하는 값을 삭제합니다.
+    //map.clear() – 맵 안의 모든 요소를 제거합니다.
+    //map.size – 요소의 개수를 반환합니다.
+    console.log(mapArr.entries())
+
+    for(let [key, value] of mapArr.entries()){ // entries()는 객체의 키,값 쌍을 배열로 반환해줌
+      console.log(key+" : "+value+"개")
+    }
+  
+    
+  </script>
+</body>
+</html>

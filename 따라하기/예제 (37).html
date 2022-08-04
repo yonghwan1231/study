@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>반복문(3) - do..while</h4>
+  <script>
+    
+    // do{
+    //   "실행할 코드"
+    // }
+    // while("반복조건")
+
+    //예제
+    i=1
+    do{
+      console.log(i+"번째 반복문")
+      i++
+    }
+    while(i<=5);
+
+    //do while문과 그냥 while문의 차이점은 코드 실행 순서이다.
+    //do while문은 코드를 실행 후 반복조건을 체크해 다시 실행하지만,
+    //while문은 반복조건을 체크 후 코드를 실행한다.
+    //때문에 do while문은 반복조건을 만족하지 않아도 코드가 최초 1회는 무조건 실행 된다.
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+
+  <div id="box" style="position:absolute; left:100px; top: 100px; width: 100px; height: 100px; background-color: red;">
+  </div>
+
+  <script>
+
+    //세가지 이벤트가 필요하다.
+
+    var isDragging = false; // 드래그중인지의 여부를 표시할 변수
+    var mouseX, mouseY // 마지막 이벤트 발생시점의 마우스좌표를 기억
+
+    //첫번째는 마우스를 눌렀을때 이벤트
+    $('#box').on('mousedown', function (ev) {
+      isDragging = true;
+      mouseX = ev.clientX
+      mouseY = ev.clientY
+    })
+
+    //두번째는 마우스를 땠을때 이벤트
+    $('#box').on('mouseup', function (ev) {
+      isDragging = false;
+
+    })
+
+    //마지막은 마우스를 움직일때 이벤트
+    $(document).on('mousemove', function (ev) { // 문서 전체 내에서 움직이기 때문에 선택자가 document임
+      if (isDragging) {
+        let startX = $('#box').css('left')
+        $('#box').css({
+          'left': parseInt($('#box').css('left').replace('px', '')) + (ev.clientX - mouseX) + 'px',
+          'top': parseInt($('#box').css('top').replace('px', '')) + (ev.clientY - mouseY) + 'px',
+        })
+        mouseX = ev.clientX
+        mouseY = ev.clientY
+      }
+    })
+
+  </script>
+</body>
+
+</html>

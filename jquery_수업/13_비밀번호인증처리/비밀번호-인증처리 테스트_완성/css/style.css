@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+* {
+  margin: 0px;
+  padding: 0px; }
+
+ol, ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+table, td, th {
+  border-collapse: collapse; }
+
+fieldset {
+  border: none; }
+
+input, a, button {
+  outline: 0; }
+
+.hidden {
+  position: absolute;
+  top: -9999px;
+  opacity: 0; }
+
+body {
+  background: rgba(228, 250, 255, 0.9); }
+
+section {
+  width: 400px;
+  background: #fff;
+  margin: 100px auto;
+  box-sizing: border-box;
+  padding: 70px 50px 60px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.03); }
+  section legend {
+    font: 45px/1 "roboto";
+    color: #555;
+    margin-bottom: 40px; }
+    section legend::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: #999;
+      margin-top: 20px; }
+  section .pwd label {
+    display: block;
+    margin-bottom: 10px;
+    color: #999; }
+  section .pwd input[type=password] {
+    width: 100%;
+    background: #f5ffff;
+    border: 1px solid #ddd;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: 1s; }
+    section .pwd input[type=password]::placeholder {
+      color: skyblue; }
+    section .pwd input[type=password]:focus {
+      border: 1px solid #1aabff;
+      background: #e6faff; }
+    section .pwd input[type=password].error {
+      background: #ffeafe;
+      border: 1px solid #ff24ff; }
+  section input[type=reset] {
+    width: 100%;
+    border: none;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding: 12px;
+    color: #fff;
+    font: bold 12px/1 "arial";
+    cursor: pointer;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #c5c5c5, #818181);
+    box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.5;
+    transition: 0.5s; }
+    section input[type=reset]:hover {
+      opacity: 1;
+      transform: scale(1.05); }
+  section input[type=submit] {
+    width: 100%;
+    border: none;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 4px;
+    color: #fff;
+    font: bold 12px/1 "arial";
+    cursor: pointer;
+    letter-spacing: 1px;
+    background: linear-gradient(30deg, #52f9ff, #25b9fd);
+    box-shadow: 3px 6px 10px rgba(19, 200, 255, 0.4);
+    opacity: 0.8;
+    transition: 0.5s; }
+    section input[type=submit]:hover {
+      opacity: 1;
+      transform: scale(1.05); }
+
+/*# sourceMappingURL=style.css.map */

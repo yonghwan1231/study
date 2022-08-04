@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/slider.css">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+  <div class="slider-wrap">
+
+    <figure class="slider-ul">
+      <div data-index="1">
+        1
+      </div>
+      <div data-index="2">
+        2
+      </div>
+      <div data-index="3">
+        3
+      </div>
+      <div data-index="4">
+        4
+      </div>
+    </figure>
+
+  </div>
+
+  <div class="button-wrap">
+    <button class="moveBtn" data-index="1">1</button>
+    <button class="moveBtn" data-index="2">2</button>
+    <button class="moveBtn" data-index="3">3</button>
+    <button class="moveBtn" data-index="4">4</button><br><br>
+    <button id="prev">이전</button> <button id="next">다음</button>
+  </div>
+  <script>
+    $(function () {
+
+
+
+      let buttonNum = 1
+      let isDone = true
+      let aniTime = 400
+
+      $('.slider-wrap').css({
+        'width': $('.slider-ul>div').width(),
+        'height': $('.slider-ul>div').height(),
+      })
+
+      $('.slider-ul').css({
+        'width': $('.slider-ul>div').width() * $('.slider-ul>div').length
+      })
+
+      $('#next').on('click', function () {
+        clearInterval(controlSlide)
+        controlSlide = setInterval(autoSlide, 3000)
+        console.log(isDone)
+        if (!isDone) return false;
+        else {
+          isDone = false;
+          buttonNum += 1;
+          if (buttonNum > $('.slider-ul>div').length) buttonNum = 1
+          console.log(buttonNum)
+          console.log(typeof -($('.slider-ul>div').width() * ($('.slider-ul>div').length - 1)))
+          if (parseInt($('.slider-ul').css("left").replace('px', '')) <= -($('.slider-ul>div').width() * ($('.slider-ul>div').length - 1))) {
+            $('.slider-ul').clone().addClass('add').insertAfter('.slider-ul');
+            $('.slider-ul').animate({
+              left: '-=' + $('.slider-ul>div').width()
+            }, aniTime, function () {
+              console.log($('.slider-ul').eq(0).attr('class'))
+              $('.slider-ul').eq(1).remove()
+              $('.slider-ul').css({
+                left: '0px'
+              })
+              isDone = true;
+            })
+          }
+          else {
+            $('.slider-ul').animate({
+              left: '-=' + $('.slider-ul>div').width()
+            }, aniTime, function () {
+              isDone = true;
+            })
+          }
+        }
+      })
+
+      $('#prev').on('click', function () {
+        clearInterval(controlSlide)
+        controlSlide = setInterval(autoSlide, 3000)
+        console.log(isDone)
+        if (!isDone) return false;
+        else {
+          isDone = false;
+          buttonNum -= 1;
+          if (buttonNum == 0) buttonNum = $('.slider-ul>div').length
+          console.log(buttonNum)
+          let prevLeft = '-' + ($('.slider-ul>div').width() * $('.slider-ul>div').length) + 'px'
+          let prevReset = '-' + ($('.slider-ul>div').width() * ($('.slider-ul>div').length - 1)) + 'px'
+
+          if ($('.slider-ul').css("left") == "0px") {
+            $('.slider-ul').clone().addClass('add').insertBefore('.slider-ul')
+            $('.slider-ul').css({
+              'left': prevLeft
+            })
+            $('.slider-ul').animate({
+              left: '+=' + $('.slider-ul>div').width()
+            }, aniTime, function () {
+              console.log($('.slider-ul').eq(0).attr('class'))
+              $('.slider-ul').eq(1).remove()
+              $('.slider-ul').css({
+                left: prevReset
+              })
+              isDone = true;
+              console.log($('.slider-ul').css('left'))
+            })
+          }
+          else {
+            $('.slider-ul').animate({
+              left: '+=' + $('.slider-ul>div').width()
+            }, aniTime, function () {
+              console.log($('.slider-ul').css('left'))
+              isDone = true;
+            })
+          }
+        }
+      })
+
+      $('.moveBtn').on('click', function (e) {
+        clearInterval(controlSlide)
+        controlSlide = setInterval(autoSlide, 3000)
+        console.log(isDone)
+        if (!isDone) return false;
+        else {
+          isDone = false;
+          let clickLeft = "-=" + ($(this).data('index') - buttonNum) * $('.slider-ul>div').width() + "px"
+          console.log(clickLeft)
+          let clickRight = "+=" + (buttonNum - $(this).data('index')) * $('.slider-ul>div').width() + "px"
+
+          if (buttonNum < $(this).data('index')) {
+            $('.slider-ul').animate({
+              left: clickLeft
+            }, aniTime, function () {
+              isDone = true;
+            })
+            buttonNum = $(this).data('index')
+          }
+          else if (buttonNum > $(this).data('index')) {
+            buttonNum = $(this).data('index')
+            $('.slider-ul').animate({
+              left: clickRight
+            }, aniTime, function () {
+              isDone = true;
+            })
+            buttonNum = $(this).data('index')
+          }
+          else {
+
+            isDone = true;
+          }
+        }
+        console.log(buttonNum)
+      })
+
+
+      let controlSlide = setInterval(autoSlide, 3000)
+
+      function autoSlide() {
+        console.log('자동슬라이드 실행됨')
+        isDone = false;
+        buttonNum += 1;
+        if (buttonNum > $('.slider-ul>div').length) buttonNum = 1
+        console.log(buttonNum)
+        if (parseInt($('.slider-ul').css("left").replace('px', '')) <= -($('.slider-ul>div').width() * ($('.slider-ul>div').length - 1))) {
+          $('.slider-ul').clone().addClass('add').insertAfter('.slider-ul');
+          $('.slider-ul').animate({
+            left: '-=' + $('.slider-ul>div').width()
+          }, aniTime, function () {
+            console.log($('.slider-ul').eq(0).attr('class'))
+            $('.slider-ul').eq(1).remove()
+            $('.slider-ul').css({
+              left: '0px'
+            })
+            isDone = true;
+          })
+        }
+        else {
+          $('.slider-ul').animate({
+            left: '-=' + $('.slider-ul>div').width()
+          }, aniTime, function () {
+            isDone = true;
+          })
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>

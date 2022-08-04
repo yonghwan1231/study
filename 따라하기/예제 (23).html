@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>문자열 숫자로 변환하기 (3) - +, * 연산자 사용</h4>
+  <script>
+    
+    //앞에 + 붙이기
+    console.log(+"10") // +를 앞에 붙여주면 문자열 숫자가 숫자열로 변환됨. 
+    console.log(+"10.1") // 소수점 이하도 변환되고
+    console.log(+"abc") // 숫자가 아니면 NaN 반환
+    console.log(+true) // ture는 1 반환
+    console.log(+false) // ture는 0 반환
+
+    //곱하기1 하기
+    console.log("10"*1) //곱하기1을 해주면 문자열 숫자가 숫자열로 변환됨.
+    console.log("10.1"*1) // 소수점 이하도 변환되고
+    console.log("abc"*1) // 숫자가 아니면 NaN 반환
+    console.log(true*1) // ture는 1 반환
+    console.log(false*1) // ture는 0 반환
+    
+  </script>
+</body>
+</html>

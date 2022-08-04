@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>콤보박스(select)에서 선택한 값, 텍스트 출력하기</h4>
+
+  <select name="language" onchange="easyHandleOnChange(this)" multiple>
+    <option value="korean">한국어</option>
+    <option value="english">영어</option>
+    <option value="chinese">중국어</option>
+    <option value="spanish">스페인어</option>
+  </select>
+  <div id='result'></div>
+  <div id='texts'></div>
+  <script>
+    
+    function handleOnChange(e){
+
+      // document.getElementById('result').innerText = e.value // 선택한 옵션의 밸류값 출력
+
+      // const text = e.options[e.selectedIndex].text;
+      // document.getElementById('result').innerText = text // 선택한 옵션의 텍스트 출력
+
+      // 선택한 옵션과 텍스트 동시 출력(여러개라도) 
+      const value = []
+      const texts = []
+
+      for(i=0; i<e.options.length; i++){
+        const option = e.options[i]
+        if(option.selected){
+          value.push(option.value)
+          texts.push(option.text)
+        }
+
+        document.getElementById('result').innerText = value
+        document.getElementById('texts').innerText = texts
+      }
+      // 끝
+      
+    }
+
+    //위 마지막 코드를 좀 더 쉽게 쓰면
+
+    function easyHandleOnChange(e){
+      const values = [...e.options].filter(function(option){
+        return option.selected
+      }).map(function(option){
+        return option.value
+      })
+
+      console.log([...e.options])
+
+      
+      const texts = [...e.options].filter(function(option){
+        return option.selected
+      }).map(function(option){
+        return option.text
+      })
+
+      document.getElementById('result').innerText = values
+      document.getElementById('texts').innerText = texts
+
+      // 콤보박스의 옵션들을 배열로 복사하고 
+      // selected 값이 true인 값만 골라내어
+      // 골라낸 값의 밸류값을 저장하고
+
+      // 위 과정으로 텍스트 값도 저장하고
+      // 모르겠네 시발
+    }
+    
+  </script>
+</body>
+</html>

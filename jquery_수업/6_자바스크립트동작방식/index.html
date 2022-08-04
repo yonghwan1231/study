@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 엔진의 동작원리 - 비동기 방식</title>
+</head>
+
+<body>
+  <!-- <script>
+    function test() {
+      setTimeout(function () {
+        console.log("타이머 끝!!");
+      }, 1000);
+
+      for (let i = 0; i < 4; i++) {
+        console.log(i);
+      }
+      console.log("for문 끝");
+    }
+
+    test();
+
+    console.log("메인 끝");
+
+  </script> -->
+
+  <script>
+
+    function test2(){
+      if(test3===false){
+        console.log("타이머 끝")
+      }
+    }
+
+    var x=1
+
+    function test3(){
+      if(x<6){
+        console.log(x)
+        x++
+      } else{
+        console.log("타이머 끝!")
+      }
+    }
+
+    test2()
+
+    setInterval(test3,1000)
+
+  </script>
+</body>
+
+</html>

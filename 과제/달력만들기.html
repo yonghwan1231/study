@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/calendar.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="dateHead">
+    <button onclick="prev()">&lt; 이전달</button>
+    <span id="year"></span>
+    <strong id="nowMonth">
+    </strong> <button onclick="next()">다음달 &gt;</button>
+  </div>
+  <table id="myTable" border="1">
+    <tbody id="table">
+    </tbody>
+  </table>
+
+  <script>
+    let table = document.getElementById('table')
+    let year = new Date().getFullYear()
+    let month = new Date().getMonth()
+
+    function calendar() {
+      let td = ''
+      let lastDate = parseInt(new Date(year, month + 1, 0).getDate())
+      table.innerHTML = ''
+      document.getElementById('nowMonth').innerText = new Date(year, month).getMonth() + 1 + '월'
+      document.getElementById('year').innerText = new Date(year, month).getFullYear() + '년'
+      for (i = 1; i <= lastDate; i++) {
+        if (i === 1) {
+          let spaceLength = parseInt(new Date(year, month, i).getDay())
+          for (j = 0; j < spaceLength; j++) {
+            let startDate = new Date(year, month, -spaceLength + 1).getDate() + j
+            td += '<td class="startTd">' + startDate + '</td>'
+          }
+        }
+        else if (new Date(year, month, i).getDay() === 0) {
+          table.innerHTML += '<tr>' + td + '</tr>'
+          td = ''
+        }
+        td += '<td>' + i + '</td>'
+        if (i === lastDate) {
+          let spaceLength2 = parseInt(new Date(year, month, i).getDay())
+          let forNum = ((6 - document.getElementsByTagName('tr').length) * 7) - spaceLength2
+          for (k = 1; k < forNum; k++) {
+            if (new Date(year, month, i + k).getDay() === 0) {
+              table.innerHTML += '<tr>' + td + '</tr>'
+              td = ''
+            }
+            td += '<td class="endTd">' + new Date(year, month, i + k).getDate() + '</td>'
+          }
+          table.innerHTML += '<tr>' + td + '</tr>'
+        }
+      }
+    }
+    calendar();
+
+    function next() { month += 1; calendar(); }
+    function prev() { month -= 1; calendar(); }
+  </script>
+</body>
+
+</html>

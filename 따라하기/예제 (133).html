@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>for문을 이용하여 테이블 생성하기</h4>
+  <script>
+    
+    const rowCnt = 5;
+    const colCnt = 2
+
+    document.write('<table border="1">')
+    for (let i = 0; i < rowCnt; i++) {
+      document.write('<tr>')
+      for (let j = 0; j < colCnt; j++) {
+        document.write('<td>')
+        document.write(i+','+j);
+        document.write('</td>')
+      }
+      document.write('</tr>')
+    }
+
+    document.write('</table>')
+    
+  </script>
+</body>
+</html>

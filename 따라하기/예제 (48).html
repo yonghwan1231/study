@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>배열 특정 값 위치(index) 찾기 - indexOf(), lastIndexOf()</h4>
+  <script>
+    
+    const arr = [1,2,3,4,5,6]
+
+    console.log(arr.indexOf(3,2)) // 2번째 인덱스부터 오른쪽으로 값을 찾는다
+    console.log(arr.lastIndexOf(1,1)) // 뒤에서 1번째 인덱스부터 왼쪽으로 값을 찾는다.
+    console.log(arr.indexOf(4)) // 검색 시작 위치를 생략하면 배열 전체를 검색한다.
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>form 태그로 사용자 입력 받기</h3>
+
+  <form action="">
+    좋아하는 가수 : <input type="text"><br>
+    좋아하는 노래 : <input type="text">
+  </form>
+
+  <hr>
+
+  <h3>input 태그로 패스워드(비밀번호) 입력란 만들기</h3>
+
+  <form action="">
+    ID : <input type="text"><br>
+    PWD : <input type="password" maxlength="5">
+  </form>
+
+  <hr>
+
+  <h3>입력받은 데이터 서버로 전송하기 - submit</h3>
+
+  <form action="">
+    ID : <input type="text"><br>
+    PWD : <input type="password"><br>
+    <input type="submit"> <!--위의 입력값들이 form태그의 action 속성으로 지정된 서버 페이지로 전송된다.-->
+  </form>
+
+  <hr>
+
+  <h3>input 태그로 버튼(button) 생성하기</h3>
+
+  <form action="">
+    <input 
+    type="button" 
+    value="여기에 표시할 텍스트 입력"
+    onclick="console.log('여기에 실행 스크립트 입력')">
+  </form>
+
+  <hr>
+
+  <h3>input 태그로 체크박스(checkbox) 만들기</h3>
+  
+  <form action="">
+    성별<br>
+    <input type="checkbox" name="gender" value="female">여성
+    <input type="checkbox" name="gender" value="male">남성<br>
+    좋아하는 과일<br>
+    <input type="checkbox" name="fruits" value="apple">사과
+    <input type="checkbox" name="fruits" value="banana">바나나
+    <input type="checkbox" name="fruits" value="orange">오렌지
+    <!--submit을 누르면 체크한 박스의 value값이 전송됩니다.-->
+  </form>
+
+  <hr>
+
+  <h3>input 태그로 라디오버튼(radio) 만들기</h3>
+
+  <form action="">
+    성별<br>
+    <input type="radio" name="gender" value="female">여성
+    <input type="radio" name="gender" value="male">남성<br>
+    좋아하는 과일<br>
+    <input type="radio" name="fruits" value="apple">사과
+    <input type="radio" name="fruits" value="banana">바나나
+    <input type="radio" name="fruits" value="orange">오렌지
+    <!--submit을 누르면 체크한 라디오버튼의 value값이 전송됩니다.-->
+  </form>
+
+  <hr>
+
+  <h3>입력 데이터 초기화를 위한 리셋 버튼(reset) 만들기</h3>
+
+  <form action="">
+    ID : <input type="text"><br>
+    PWD : <input type="password"><br>
+    성별<br>
+    <input type="radio" name="gender" value="female">여성
+    <input type="radio" name="gender" value="male">남성<br>
+    좋아하는 과일<br>
+    <input type="checkbox" name="fruits" value="apple">사과
+    <input type="checkbox" name="fruits" value="banana">바나나
+    <input type="checkbox" name="fruits" value="orange">오렌지<br>
+    <input type="submit"> <input type="reset">
+  </form>
+
+  <hr>
+
+  <h3>날짜, 시간, 년도 입력받기</h3>
+
+  <form action="">
+    월 : <input type="month"><br>
+    날짜 : <input type="date"><br>
+    시간 : <input type="time"><br>
+    날짜시간 : <input type="datetime-local"><br>
+  </form>
+
+  <hr>
+
+  <h3>날짜, 시간 입력 항목 기본값 세팅하기</h3>
+
+  <form action="">
+    월 : <input type="month" value="2022-01"><br>
+    날짜 : <input type="date" value="2022-01-01"><br>
+    시간 : <input type="time" value="12:00"><br>
+    날짜시간 : <input type="datetime-local" value="2022-01-01T12:00"><br>
+  </form>
+
+  <hr>
+
+  <h3>날짜 입력 항목에 현재 시간을 기본값으로 세팅하기</h3>
+
+  <form action="">
+    월 : <input type="month" id="nowMonth"><br>
+    날짜 : <input type="date" id="nowDate"><br>
+    시간 : <input type="time" id="nowTime"><br>
+    날짜시간 : <input type="datetime-local" id="nowFullDate"><br>
+  </form>
+
+  <script>
+    console.log(new Date().toISOString())
+    document.getElementById('nowMonth').value = new Date().toISOString().slice(0,7);
+    document.getElementById('nowDate').value = new Date().toISOString().slice(0,10);
+    document.getElementById('nowTime').value = new Date().toISOString().slice(11,-1);
+    document.getElementById('nowFullDate').value= new Date().toISOString().slice(0, -1);
+  </script>
+
+  <hr>
+
+  <h3>사용자로부터 색깔 입력받기</h3>
+
+  <form action="">
+    가장 좋아하는 색깔 : <input type="color" value="#0000ff">
+  </form>
+
+  <hr>
+
+  <h3>input type='file' 속성 알아보기 ( 파일 입력 )</h3>
+
+  <form action="">
+    <input 
+    type="file" 
+    accept="image/*,.txt"
+    multiple 
+    required 
+    captrue="user"
+    onchange="aaa">
+  </form>
+
+  <p>
+    <strong>accept 속성</strong> : 첨부파일의 유형 지정<br>
+    ex) image/* 는 모든 유형의 이미지 파일을 뜻함<br>
+    ex) image/jpg 는 jpg유형의 이미지 파일을 뜻함
+    ex) image/*,.txt 는 모든 유형의 이미지 파일과 txt 파일을 뜻함(.txt처럼 마치표로 시작하는 확장자명을 입력)
+  </p>
+
+  <p>
+    <strong>capture 속성</strong> : accept 속성에 이미지 또는 비디오를 입력받는 경우, 기기의 어떤 카메라를 이용할지 지정한다. user는 전면카메라, environment는 후면카메라.<br>
+  </p>
+
+  <p>
+    <strong>files 속성</strong> : 사용자가 파일을 선택하면, 선택된 파일의 목록이 FileList 객체 형태로 flies 속성에 저장된다.<br>
+  </p>
+
+  <p>
+    <strong>multiple 속성</strong> : 사용자가 ctrl / shift 키를 사용하여 한번에 여러개의 파일을 선택하게 할지, 한번에 하나의 파일만 선택하게 할지를 결정하는 속성.
+    boolean 값을 가진다.<br>
+  </p>
+
+  <p>
+    <strong>required 속성</strong> : submit 버튼으로 입력값을 전송할때, 반드시 파일이 선택 되어야 한느지 여부를 지정하는 속성이다. boolean 값을 가진다.<br>
+  </p>
+
+  <p>
+    <strong>value 속성</strong> : 사용자가 선택한 파일의 경로값을 가진다. 만약, 여러 파일을 선택한 경우, 목록의 첫번째 파일 경로값만을 가진다. 단, 악의적인 사용 방지를 위해 모든 파일의 겨올 앞에 'C:'fakepath\'가 포함된다.<br>
+  </p>
+
+</body>
+</html>

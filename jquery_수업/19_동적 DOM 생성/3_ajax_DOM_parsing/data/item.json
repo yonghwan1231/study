@@ -1,0 +1,19 @@
+{
+    "item" : [
+        {
+            "title" : "네이버",
+            "link" : "https://www.naver.com" ,
+            "imgSrc" : "img/s1.jpg"
+        },
+        {
+            "title" : "네이트",
+            "link" : "https://www.nate.com" ,
+            "imgSrc" : "img/s2.jpg"
+        },
+        {
+            "title ": "구글",
+            "link" : "https://www.google.com" ,
+            "imgSrc" : "img/s3.jpg"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>시간 계산하기 (시/분/초/ 더하기, 빼기)</h4>
+  <script>
+    
+    let date = new Date(2022, 0, 1)
+      console.log('기준시간 : '+date)
+
+    //시간 더하기,빼기
+    date.setHours(date.getHours()+12)
+    console.log('12시간 후 : '+date)
+    date.setHours(date.getHours()-12)
+    console.log('12시간 전 : '+date)
+
+    //분 더하기/빼기
+    date.setMinutes(date.getMinutes()+90)
+    console.log('90분 후 : '+date)
+    date.setMinutes(date.getMinutes()-90)
+    console.log('90분 전 : '+date)
+
+    //초 더하기/빼기
+    date.setSeconds(date.getSeconds()+60)
+    console.log('60초 후 : '+date)
+    date.setSeconds(date.getSeconds()-60)
+    console.log('60초 전 : '+date)
+
+  </script>
+</body>
+</html>

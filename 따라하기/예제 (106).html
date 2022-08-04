@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>이벤트 한번만 실행되도록 하기</h4>
+  <button id="onceEvent">이 이벤트는 최초 한번만 실행 됩니다.</button>
+  <script>
+    
+    //addEventListener('type',function,{once:true})
+
+    document.getElementById('onceEvent').addEventListener('click',()=>{
+      alert("끝!")
+    },{once : true}) // 마지막 파라미터에 {once : true} 를 추가해주면 됨
+    
+  </script>
+</body>
+</html>

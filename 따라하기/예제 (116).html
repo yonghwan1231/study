@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>input 박스에 숫자만 입력되도록 설정하는 4가지 방법</h4>
+
+  <form action="">
+    타입을 number로 <input type="number" min="10" max="30" step="5"><br>
+    입력 keycode 체크 <input type="text" onkeypress="return checkNumber(event)"><br>
+    정규식, 
+    정규식, replace()함수 이용 <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"><br>
+    pattern 속성활용 <input type="text" pattern="[0-9]+"><br>
+    <input type="submit">
+  </form>
+  <script>
+    
+    //type을 'number로 지정하기'
+    `html의 input태그 타입을 그냥 number로 만들면 됨...
+    타입이 number 가 되면 max,min,step 속성 지정이 가능한데,
+    여기서 max는 입력할수있는 최댓값,
+    min은 입력할수있느 최소값,
+    step은 입력할수있는 숫자들의 배수? 간격. 5를 입력하면 5,10,15 ... 만 입력가능`
+
+    //입력된 keycode 체크하기
+    function checkNumber(e){
+      console.log(e.key)
+      if(e.key === '.' || e.key === '-' || (e.key >= 0 && e.key <=9)){
+        return true;
+      }
+      return false
+    }
+
+
+    //oninput 이벤트, 정규식, replace() 함수 활용하기
+    `input에 oninput속성을 추가하고, 속성값으로 this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');라는 정규식 함수를 입력해 준다.`
+    
+
+    //pattern 속성 활용하기
+    `input에 pattern 속성을 추가하고, 속성값으로 [0-9]+ 를 입력해준다.`
+    
+    
+  </script>
+</body>
+</html>

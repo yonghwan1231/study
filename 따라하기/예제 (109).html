@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="./js/button.js"></script>
+</head>
+<body>
+  <h4>버튼 활성화/비활성화 하기 (fieldset 포함)</h4>
+  <input type='button' value='활성화1'/>
+  <input type='button' disabled value='비활성화1'/>
+  <input type='button' disabled='disabled' value='비활성화2'/>
+  <input type='button' value='비활성화3' id='btn'/>
+
+  <fieldset disabled>
+    <legend> Fieldset Button </legend>
+    <input id='target_btn_1' type='button' value='버튼1'/>
+    <input id='target_btn_2' type='button' value='버튼2'/>
+  </fieldset>
+  <script>
+    
+    //html상에서 button 의 disabled 속성 사용
+
+    //disabled = true 사용
+    document.getElementById('btn').disabled = true
+
+    //fieldset 에 disabled 속성 부여로  fieldset안의 모든 버튼 비활성화
+    
+  </script>
+</body>
+</html>
