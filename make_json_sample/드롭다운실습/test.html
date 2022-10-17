@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="createDropdown">
+    <!-- html -->
+  </div>
+
+</body>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+
+  var defaultDevice = 'iphone'
+  var defaultRank = 'A'
+
+  fetch('find.json')
+    .then(function (respone) {
+      return respone.text()
+    })
+    .then(function (text) {
+      createData(text)
+      changeData(text)
+      dropdown()
+    })
+
+  function createData(json) {
+    obj = JSON.parse(json)
+
+    let rank = Object.keys(obj[defaultDevice])
+    let keys = Object.keys(obj[defaultDevice][defaultRank])
+    let values = Object.values(obj[defaultDevice][defaultRank])
+
+    let myWrap = document.createElement('div')
+    myWrap.classList.add('rank-wrap')
+    let myDiv = document.createElement('div')
+    myDiv.classList.add('rank', 'click')
+    let mySpan = document.createElement('span')
+    mySpan.classList.add('rank-name', 'click')
+    mySpan.textContent = defaultRank
+    let myArrow = document.createElement('img')
+    myArrow.classList.add('arrow', 'click')
+    myArrow.src = './ic_dropdown_arrow.svg'
+    let myUl = document.createElement('ul')
+    myUl.classList.add('rank-list')
+    let myDl = document.createElement('dl')
+    myDl.classList.add('rank-data')
+
+    for (i = 0; i < rank.length; i++) {
+      let myLi = document.createElement('li')
+      myLi.id = rank[i]
+      myLi.textContent = rank[i]
+      if (myLi.id === defaultRank) {
+        myLi.classList.add('select')
+      }
+      myUl.appendChild(myLi)
+    }
+
+    for (j = 0; j < keys.length; j++) {
+      var myDt = document.createElement('dt')
+      var myDd = document.createElement('dd')
+      myDt.textContent = keys[j]
+      myDd.textContent = values[j]
+      myDl.appendChild(myDt)
+      myDl.appendChild(myDd)
+    }
+
+    myDiv.appendChild(mySpan)
+    myDiv.appendChild(myArrow)
+    myWrap.appendChild(myDiv)
+    myWrap.appendChild(myUl)
+    document.querySelector('.createDropdown').appendChild(myWrap)
+    document.querySelector('.createDropdown').appendChild(myDl)
+  }
+
+  function changeData(json) {
+    obj = JSON.parse(json)
+    $('li').on('click', function (e) {
+      var level = e.target.id
+      let changeKeys = Object.keys(obj[defaultDevice][level])
+      let changeValues = Object.values(obj[defaultDevice][level])
+
+      for (k = 0; k < changeKeys.length; k++) {
+        $('dl').find('dt').eq(k).text(changeKeys[k])
+        $('dl').find('dd').eq(k).text(changeValues[k])
+      }
+    })
+  }
+
+  function dropdown() {
+    $('.rank-list').hide()
+
+    $('.click').on('click', function () {
+      console.log('열림')
+      $('.rank').removeClass('color')
+      $('.arrow').addClass('rotation')
+      $('.rank-list').show()
+    })
+
+    $('.rank-list>li').on('click', function (e) {
+      console.log('닫힘')
+      $('.rank-list>li').removeClass('select')
+      $(e.target).addClass('select')
+      $('.rank-name').text(e.target.innerText)
+      $('.rank').addClass('color')
+      $('.rank-list').hide()
+      $('.arrow').removeClass('rotation')
+    })
+
+    $('body').on('click', function (e) {
+      console.log('닫힘2')
+      if (
+        // ($(e.target).attr('class') != 'click')
+        !$(e.target).hasClass('click')
+        && ($(e.target).parent().attr('class') != 'rank-list')
+      ) {
+        console.log($(e.target).attr('class'))
+        $('.rank').removeClass('color')
+        $('.arrow').removeClass('rotation')
+        $('.rank-list').hide()
+      }
+      console.log($(e.target).attr('class'))
+    })
+  }
+
+</script>
+
+</html>

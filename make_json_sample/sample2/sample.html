@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test</title>
+</head>
+
+<body>
+  <!-- 얼마나 이해했는지 실력을 시험해봅시다. https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Test_your_skills:_JSON -->
+  <section></section>
+
+  <script>
+
+
+    const section = document.querySelector('section');
+
+    let para1 = document.createElement('p');
+    let para2 = document.createElement('p');
+
+    let motherInfo = '어미고양이의 이름은 ';
+    let kittenInfo = '';
+    let total = 0;
+    let male = 0;
+    let female = 0;
+    fetch('sample.json')
+      .then(function (response) {
+        return response.text()
+      })
+      .then(function (text) {
+        return displayCatInfo(text)
+      })
+
+    function displayCatInfo(catString) {
+
+      // 여기에 코드를 작성하세요.
+      // 1) Json 파싱
+      var catInfoObj = JSON.parse(catString)
+      // 2) 어미 고양이 이름을 "," 나열 마지막 어미고양이 이름 전에는 "and"로 표기
+      for (i = 0; i < catInfoObj.length; i++) {
+        if (i === catInfoObj.length - 1) {
+          motherInfo += catInfoObj[i].name + '그리고';
+        }
+        else {
+          motherInfo += catInfoObj[i].name + ', '
+        }
+        total += catInfoObj[i].kittens.length;
+        for (k = 0; k < catInfoObj[i].kittens.length; k++) {
+          if (catInfoObj[i].kittens[k].gender === "m") {
+            male++;
+          }
+          else {
+            female++;
+          }
+        }
+      }
+      // 3) 새끼고양이 전체 숫자, 수컷숫자, 암컷숫자
+      // 다른 코드를 편집하지 마세요!
+      kittenInfo += "새끼 고양이 전체 숫자는 " + total + "마리 이고 수컷은 " + male + '마리 ' + female + '마리 입니다.'
+
+      para1.textContent = motherInfo;
+      para2.textContent = kittenInfo;
+    }
+
+    section.appendChild(para1);
+    section.appendChild(para2);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+
+  <section class="time">
+    <span>크리스마스까지</span><br>
+    <span class="date">00</span> 일
+    <span class="hour">00</span> 시간
+    <span class="minute">00</span> 분
+    <span class="second">00</span> 초
+    <span>남았습니다.</span>
+  </section>
+
+  <script>
+    $(function () {
+
+      setInterval(countDown, 1000);
+
+      function countDown() {
+        var christmas = new Date(2022, 11, 25).getTime()
+        var today = new Date().getTime()
+        $(".date").text(Math.floor((christmas - today) / 1000 / 60 / 60 / 24))
+        $(".hour").text(24 - new Date().getHours())
+        $(".minute").text(60 - new Date().getMinutes())
+        $(".second").text(60 - new Date().getSeconds())
+      }
+
+
+    })
+  </script>
+
+</body>
+
+</html>

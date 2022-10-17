@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./style.css">
+  <title>skt</title>
+</head>
+
+<body>
+  <header>
+
+  </header>
+
+  <section class="content-wrap">
+
+    <header class="content-header">
+      <img src="./competition/top_visual_title_pc.png" alt="">
+      <img src="./competition/top_visual_avatar_pc.png" alt="">
+      <div class="top-visual-video">
+        <video preload="none" data-video="conpetition" poster="/movie/event/thumnail/conpetition_awards_video.png"
+          autoplay="" muted="" loop="" playsinline="" controls="" width="100%">
+          <source src="/movie/event/conpetition_awards_video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="content-button">
+        <button>웹 드라마</button>
+        <button>숏폼</button>
+        <button>인스타툰</button>
+      </div>
+    </header>
+
+  </section>
+
+  <footer>
+  </footer>
+
+  <aside>
+  </aside>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    var jsonObj = ''
+    var popupNum = 1
+    fetch('awards_ko.json')
+      .then(function (response) {
+        return response.text()
+      })
+      .then(function (text) {
+        makeContent(text)
+        return text
+      }).then(function (text) {
+
+        $('.detail-button').on('click', function (e) {
+          console.log(text)
+          var popupDataNum = parseInt($(e.target).attr('data-popup'))
+          makePopup(text, popupDataNum)
+
+        })
+      })
+
+    function makeContent(json) {
+      //변수-------------------------------------
+
+      var obj = JSON.parse(json)
+
+      var titleArr = []
+      for (i = 0; i < obj.length; i++) {
+        titleArr.push(obj[i].type)
+      }
+
+      var title = [...new Set(titleArr)]
+
+
+      //변수-------------------------------------
+
+      for (i = 0; i < title.length; i++) {
+        var article = document.createElement('article')
+        article.classList.add('content', 'content-' + (i + 1))
+        var header = document.createElement('header')
+        header.classList.add('title')
+        var myUl = document.createElement('ul')
+        myUl.classList.add('content-box')
+        var titleCount = titleArr.filter(function (el) {
+          if (el === title[i]) {
+            return true
+          }
+        }).length
+        var content = obj.filter(function (el) {
+          if (el.type === title[i]) {
+            return true
+          }
+        })
+
+        header.textContent = title[i] + '(총 ' + titleCount + '개)'
+        article.appendChild(header)
+
+        for (j = 0; j < titleCount; j++) {
+          var myList = document.createElement('li')
+          var imgWrap = document.createElement('div')
+          imgWrap.classList.add('img-wrap')
+          var detailTitle = document.createElement('h3')
+          detailTitle.classList.add('detail-title')
+          var detailButton = document.createElement('button')
+          detailButton.classList.add('detail-button')
+          detailButton.dataset.popup = popupNum
+          var awardImg = ''
+
+          if (content[j].awards === "대상") {
+            awardImg = 'award1.png'
+          }
+          else if (content[j].awards === "우수상") {
+            awardImg = 'award2.png'
+          }
+          else {
+            awardImg = 'award3.png'
+          }
+
+          imgWrap.innerHTML = '<img src="./competition/awards/' + content[j].source + '"><img src="./competition/awards/' + awardImg + '" class="icon-award">'
+          detailTitle.textContent = content[j].title
+          detailButton.textContent = '자세히 보기'
+          popupNum++
+
+          myList.appendChild(imgWrap)
+          myList.appendChild(detailTitle)
+          myList.appendChild(detailButton)
+          myUl.appendChild(myList)
+        }
+
+        article.appendChild(myUl)
+        document.querySelector('.content-wrap').appendChild(article)
+      }
+    }
+
+    function makePopup(json, popupDataNum) {
+
+      var obj = JSON.parse(json)
+      var popupObj = obj[popupDataNum - 1]
+      var popup = document.createElement('div')
+      popup.classList.add('popup')
+      popup.innerHTML =
+        `<header class="popup-header">
+            <button class="popup-close">X</button>
+          </header>
+          <section class="popup-content-wrap">
+            <h3 class="popup-title">`+ popupObj.title + `</h3>
+
+            <article class="popup-content">
+              <div class="popup-source">
+                <video class="popup-movie" preload="none" poster="/data/movie/thumnail/`+ popupObj.thumnail + `" controls="controls"
+                  width="100%">
+                  <source src="/data/movie/`+ popupObj.movie + `" type="video/mp4">
+                </video>
+              </div>
+              <dl class="work">
+                <dt>작품소개</dt>
+                <dd>`+ popupObj.description + `</dd>
+              </dl>
+              <dl>
+                <dt>팀장</dt>
+                <dd>`+ popupObj.leader_name + `</dd>
+              </dl>
+              <dl class="members">
+                <dt>팀원</dt>
+              </dl>
+            </article>
+
+            <figure class="insta-button">
+              <a href="`+ popupObj.link + `" target="_blank">인스타그램에서 보기></a>
+            </figure>
+
+          </section>`
+
+      document.querySelector('aside').appendChild(popup)
+
+      var memberList = popupObj.members_name.split(',')
+
+      for (k = 0; k < memberList.length; k++) {
+        var memberName = document.createElement('dd')
+        memberName.textContent = memberList[k]
+        document.querySelector('.members').appendChild(memberName)
+      }
+
+
+    }
+
+    $('.popup-close').on('click', function (e) {
+      e.preventDefault;
+      $('.popup').remove()
+    })
+  </script>
+</body>
+
+</html>

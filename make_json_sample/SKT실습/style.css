@@ -1,0 +1,156 @@
+@charset "utf-8";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+
+.content-wrap {
+  padding: 0 20px;
+  text-align: center;
+  background: url(./competition/vote_visual_bg_pc.png);
+}
+
+.content,
+.content-1 {
+  background-color: white;
+}
+
+.title {
+  margin: 100px 0;
+  font-size: 30px;
+  color: #3610c1;
+}
+
+.content-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 150px;
+  text-align: left;
+}
+
+.content-box>li {
+  margin-bottom: 60px;
+  width: 48%;
+}
+
+.content-box>li>.img-wrap {
+  position: relative;
+}
+
+.content-box>li>.img-wrap>img {
+  width: 100%;
+}
+
+.content-box>li>.img-wrap>.icon-award {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 66px;
+  height: 68px;
+}
+
+.detail-button {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #3610c1;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+  background-color: white;
+  border: 1px solid red;
+}
+
+.popup-header {
+  text-align: right;
+}
+
+.popup-header>.popup-close {
+  width: 30px;
+  height: 30px;
+}
+
+.popup-content-wrap {
+  text-align: left;
+}
+
+.popup-content-wrap>.popup-title {
+  margin-bottom: 1.56vw;
+  text-align: center;
+  font-size: 2.8vw;
+  color: #3610c1;
+}
+
+.popup-content-wrap>.popup-content {
+  padding: 0 15%;
+  overflow-y: scroll;
+  height: 40vh;
+}
+
+.popup-content-wrap>.popup-content>.popup-source {
+  margin-bottom: 6vw;
+}
+
+.popup-content-wrap>.popup-content>dl {
+  margin-bottom: 2.6vw;
+}
+
+.popup-content-wrap>.popup-content>dl>dt {
+  font-size: 1.875vw;
+  font-weight: bold;
+}
+
+.popup-content-wrap>.popup-content>dl>dd {
+  font-size: 1.48vw;
+  color: #666;
+}
+
+.popup-content-wrap>.popup-content>dl:last-of-type {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popup-content-wrap>.popup-content>dl:last-of-type>dt {
+  width: 100%;
+}
+
+.popup-content-wrap>.popup-content>dl:last-of-type>dd {
+  width: 50%;
+}
+
+.insta-button {
+  padding: 0 15%;
+}
+
+.insta-button>a {
+  display: inline-block;
+  width: 100%;
+  height: 8vh;
+  text-align: center;
+  line-height: 8vh;
+  background-color: #3610c1;
+  color: white;
+  border-radius: 0.8vw;
+  font-size: 1.875vw;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.work>dd {
+  white-space: pre-wrap;
+}
