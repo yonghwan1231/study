@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/popup.css">
+</head>
+
+<body>
+
+  <aside class="popup"></aside>
+
+  <script src="./popup.js"></script>
+  <script>
+    var popup = new Popup({
+      팝업타입: '에러',
+      팝업제목: '제목제목제목제목',
+      팝업내용: '내용내용내용내용내용내용내용내용',
+      팝업버튼: [
+        {
+          버튼명: '취소',
+          이벤트: function () {
+            alert('이벤트')
+          }
+        },
+        {
+          버튼명: '확인',
+          이벤트: function () {
+            alert('이벤트')
+          }
+        }
+      ]
+    })
+  </script>
+</body>
+
+</html>
