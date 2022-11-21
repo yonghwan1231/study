@@ -13,13 +13,20 @@
 
   <figure id="input"></figure>
 
+
+  <div class="btn-group">
+    <button class="prev">이전</button>
+    <button class="next">다음</button>
+  </div>
+
+  <aside></aside>
+
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="./input.js"></script>
   <script>
     var input = new Input({
       렌더링위치: document.querySelector('#input'),
-      인풋타입: "id",
-      최대글자수: 4,
+      인풋타입: "password", // id, etc, price, connect, password, phone
     })
   </script>
 </body>
